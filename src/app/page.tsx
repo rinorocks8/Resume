@@ -9,22 +9,22 @@ const orbitron_font = Orbitron({
 });
 
 const eight_track_hollow = localFont({
-  src: "../../public/EIGHT_Hollow.ttf",
+  src: "../../public/eight_hollow.ttf",
   variable: "--font-eight_track_hollow-font",
 });
 
 const eight_track = localFont({
-  src: "../../public/EIGHT.ttf",
+  src: "../../public/eight.ttf",
   variable: "--font-eight_track-font",
 });
 
 const astral_delight_hollow = localFont({
-  src: "../../public/Astral_Delight.ttf",
+  src: "../../public/astral_delight.ttf",
   variable: "--font-astral_delight_hollow-font",
 });
 
 const astral_delight = localFont({
-  src: "../../public/Astral_Delight_Black.ttf",
+  src: "../../public/astral_delight_black.ttf",
   variable: "--font-astral_delight-font",
 });
 
