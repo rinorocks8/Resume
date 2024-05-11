@@ -1,7 +1,10 @@
+"use client";
+
 import Background from "./background/background";
 import MenuBar from "./menuBar/MenuBar";
 import { Orbitron } from "next/font/google";
 import localFont from "next/font/local";
+import { useState } from "react";
 
 const orbitron_font = Orbitron({
   subsets: ["latin"],
@@ -29,9 +32,11 @@ const astral_delight = localFont({
 });
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
     <main
-      className={`h-screen w-screen
+      className={`h-screen w-screen ${darkMode ? "dark" : "light"}
         ${orbitron_font.variable} orbitron-font
         ${eight_track_hollow.variable} eight_track_hollow
         ${eight_track.variable} eight_track
@@ -40,24 +45,25 @@ export default function Home() {
       `}
     >
       <div className="absolute h-screen w-screen">
-        <Background />
+        <Background darkMode={darkMode} />
       </div>
       <div className="absolute h-screen w-screen justify-center flex">
-        <div className="h-full flex-col items-center justify-center py-24 max-w-[66%] w-full">
-          <div className="items-center justify-start flex flex-1 py-4">
+        <div className="flex h-full flex-col items-center justify-center py-24 max-w-[66%] w-full flex-1">
+          {/* Name */}
+          <div className="items-center justify-start flex w-full py-4">
             <button
-              className={`z-10 text-blue-900 text-5xl font-eight_track_hollow`}
+              className={`z-10 text-blue-900 dark:text-red-900 text-5xl font-eight_track_hollow`}
             >
               Ryan Circelli
             </button>
             <div
-              className={`absolute ml-3 mb-4 opacity-85 pointer-events-none text-blue-900 text-5xl font-eight_track_hollow font-bold`}
+              className={`absolute ml-3 mb-4 opacity-85 pointer-events-none text-blue-900 dark:text-red-900 text-5xl font-eight_track_hollow font-bold`}
               aria-hidden="true"
             >
               Ryan Circelli
             </div>
             <div
-              className={`absolute ml-6 mb-8 opacity-70 pointer-events-none text-blue-900 text-5xl font-eight_track_hollow font-bold`}
+              className={`absolute ml-6 mb-8 opacity-70 pointer-events-none text-blue-900 dark:text-red-900 text-5xl font-eight_track_hollow font-bold`}
               aria-hidden="true"
             >
               Ryan Circelli
@@ -87,9 +93,11 @@ export default function Home() {
               Circelli
             </div>
           </div>
+          {/* Menu */}
           <div className="w-full">
-            <MenuBar />
+            <MenuBar setDarkMode={setDarkMode} />
           </div>
+          <div className="w-full bg-chrome rounded-3xl my-8 flex-1"></div>
         </div>
       </div>
     </main>

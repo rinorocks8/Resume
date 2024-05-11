@@ -7,10 +7,11 @@ varying vec2 vUv;
 uniform vec2 u_resolution;
 // elapsed time since shader compile in seconds
 uniform float u_time;
+uniform bool u_darkMode;
 
 const mat2 m = mat2(0.80, 0.60, -0.60, 0.80);
 
-const float t_scale = 0.5;
+const float t_scale = 1.0;
 const float u_scale = 1.5;
 
 float noise(in vec2 p) {
@@ -104,12 +105,28 @@ float luminance(vec3 color) {
     return dot(color, vec3(0.0, 1.0, 0.0));
 }
 
+vec3 adjustContrastAndBrightness(vec3 color, float contrastFactor, float brightnessFactor) {
+    // Increase contrast
+    color = (color - 0.5) * contrastFactor + 0.5;
+
+    // Ensure we clamp the values to the valid range [0, 1] to avoid artifacts
+    color = clamp(color, 0.0, 1.0);
+
+    // Make darker
+    color *= brightnessFactor;
+
+    return color;
+}
+
 void main() {
     vec2 uv = vec2(vUv);
     vec2 p = (u_scale * uv - vec2(0, 0)) * vec2(u_resolution.x / u_resolution.y, 1.0) * vec2(0.5);
     vec3 waves = normalize(blur(p));
     float luminanceValue = luminance(waves);
-
+    if (u_darkMode)
+        waves = adjustContrastAndBrightness(vec3(waves.x, 0, 0), 1.0, 1.5);
+    else
+        waves = adjustContrastAndBrightness(waves, 1., 0.8);
     vec2 grid = p * 200.;
     vec2 grid_frac = fract(grid);
 
@@ -119,6 +136,7 @@ void main() {
     float dot_radius = 0.03 + luminanceValue;
     float mask = step(distance, dot_radius);
 
+    // bg, dots, mask
     vec3 finalColor = mix(waves, waves*1.5, mask);
 
     gl_FragColor.rgba = vec4(finalColor, 1.0);

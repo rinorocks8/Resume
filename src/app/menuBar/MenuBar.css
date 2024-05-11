@@ -12,17 +12,3 @@
     );
   }
 }
-
-.menu {
-  box-shadow: inset 0px 0px 1px 1px rgba(178, 190, 207, 1),
-    inset 0px 0px 2px 2px rgba(226, 232, 240, 1),
-    inset 0px 0px 8px 8px rgba(255, 255, 255, 1);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(226, 232, 240, 1) 10%,
-    rgba(178, 190, 207, 1) 50%,
-    rgba(226, 232, 240, 1) 90%,
-    rgba(255, 255, 255, 1) 100%
-  );
-}
