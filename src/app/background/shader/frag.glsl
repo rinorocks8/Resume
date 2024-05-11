@@ -105,28 +105,19 @@ float luminance(vec3 color) {
     return dot(color, vec3(0.0, 1.0, 0.0));
 }
 
-vec3 adjustContrastAndBrightness(vec3 color, float contrastFactor, float brightnessFactor) {
-    // Increase contrast
-    color = (color - 0.5) * contrastFactor + 0.5;
-
-    // Ensure we clamp the values to the valid range [0, 1] to avoid artifacts
-    color = clamp(color, 0.0, 1.0);
-
-    // Make darker
-    color *= brightnessFactor;
-
-    return color;
-}
-
 void main() {
     vec2 uv = vec2(vUv);
     vec2 p = (u_scale * uv - vec2(0, 0)) * vec2(u_resolution.x / u_resolution.y, 1.0) * vec2(0.5);
     vec3 waves = normalize(blur(p));
     float luminanceValue = luminance(waves);
+
     if (u_darkMode)
-        waves = adjustContrastAndBrightness(vec3(waves.x, 0, 0), 1.0, 1.25);
+        waves = vec3(luminanceValue) * vec3(waves.x + waves.y + waves.z, 0,0);
     else
-        waves = adjustContrastAndBrightness(waves, 1., 0.8);
+        waves = vec3(luminanceValue) * waves;
+
+    waves = mix(vec3(luminanceValue * 0.5), waves, 0.5);
+    
     vec2 grid = p * 200.;
     vec2 grid_frac = fract(grid);
 
