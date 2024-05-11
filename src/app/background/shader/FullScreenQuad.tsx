@@ -12,7 +12,8 @@ const TestShaderMaterial = shaderMaterial(
   {
     u_time: 0.0,
     u_resolution: new THREE.Vector2(1, 1),
-    u_darkMode: true,
+    u_darkMode: false,
+    u_darkModeTime: 100.0,
   },
   vertex,
   frag
@@ -24,6 +25,7 @@ type TestShaderMaterialType = THREE.ShaderMaterial & {
   u_time: number;
   u_resolution: THREE.Vector2;
   u_darkMode: boolean;
+  u_darkModeTime: number;
 } & HTMLElement;
 
 declare global {
@@ -55,11 +57,18 @@ export default function FullScreenQuad({ darkMode }: { darkMode: boolean }) {
     }
   }, []);
 
+  useEffect(() => {
+    if (meshRef.current) {
+      meshRef.current.u_darkModeTime = 0.0;
+      meshRef.current.u_darkMode = darkMode;
+    }
+  }, [darkMode]);
+
   useFrame((state, delta) => {
     if (meshRef.current) {
       meshRef.current.uniforms.u_time.value += delta;
       meshRef.current.uniforms.u_resolution.value = resolution;
-      meshRef.current.u_darkMode = darkMode;
+      meshRef.current.u_darkModeTime += delta;
     }
   });
 

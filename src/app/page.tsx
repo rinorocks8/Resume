@@ -32,7 +32,7 @@ const astral_delight = localFont({
 });
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <main

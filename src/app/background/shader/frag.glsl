@@ -8,6 +8,7 @@ uniform vec2 u_resolution;
 // elapsed time since shader compile in seconds
 uniform float u_time;
 uniform bool u_darkMode;
+uniform float u_darkModeTime;
 
 const mat2 m = mat2(0.80, 0.60, -0.60, 0.80);
 
@@ -111,13 +112,14 @@ void main() {
     vec3 waves = normalize(blur(p));
     float luminanceValue = luminance(waves);
 
-    if (u_darkMode)
-        waves = vec3(luminanceValue) * vec3(waves.x + waves.y + waves.z, 0,0);
-    else
-        waves = vec3(luminanceValue) * waves;
-
-    waves = mix(vec3(luminanceValue * 0.5), waves, 0.5);
+    float blendFactor = clamp(0.0, 1.0, u_darkModeTime * 4.);
+    if (u_darkMode) {
+        blendFactor = 1.0 - blendFactor;
+    }
+    waves = mix( vec3(luminanceValue) * vec3(waves.x + waves.y + waves.z, 0,0),vec3(luminanceValue) * waves, blendFactor);
     
+    waves = mix(vec3(luminanceValue * 0.5), waves, 0.5);
+
     vec2 grid = p * 200.;
     vec2 grid_frac = fract(grid);
 
@@ -129,7 +131,7 @@ void main() {
 
     // bg, dots, mask
     vec3 finalColor = mix(waves, waves*1.5, mask);
-    finalColor = clamp(u_time, 0.0, 1.0) * finalColor;
+    finalColor = clamp(u_time * 4.0, 0.0, 1.0) * finalColor;
 
     gl_FragColor.rgba = vec4(finalColor, 1.0);
 }
