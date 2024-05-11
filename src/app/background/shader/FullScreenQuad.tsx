@@ -57,10 +57,14 @@ export default function FullScreenQuad({ darkMode }: { darkMode: boolean }) {
     }
   }, []);
 
+  const [initLoad, setInitLoad] = useState(true);
   useEffect(() => {
     if (meshRef.current) {
-      meshRef.current.u_darkModeTime = 0.0;
+      if (!initLoad) {
+        meshRef.current.u_darkModeTime = 0.0;
+      }
       meshRef.current.u_darkMode = darkMode;
+      setInitLoad(false);
     }
   }, [darkMode]);
 
