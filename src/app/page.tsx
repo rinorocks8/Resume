@@ -132,15 +132,15 @@ export default function Home() {
                     {/* Text */}
                     <div className="text-center mt-6 text-black font-medium text-xs font-orbitron">
                       <p>
-                        I am a software engineer with a passion for web
+                        {`I am a software engineer with a passion for web
                         development. I prefer to work with React, React Native
                         (Expo), Typescript, Python, Terraform, and many AWS
-                        services, but I'm quick to learn new things.
+                        services, but I'm quick to learn new things.`}
                       </p>
                       <br />
                       <p>
-                        I am always open to connect and learing more from my
-                        peers.
+                        {`I am always open to connect and learing more from my
+                        peers.`}
                       </p>
                     </div>
                   </div>
