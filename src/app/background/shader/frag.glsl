@@ -124,7 +124,7 @@ void main() {
     vec3 waves = normalize(blur(p));
     float luminanceValue = luminance(waves);
     if (u_darkMode)
-        waves = adjustContrastAndBrightness(vec3(waves.x, 0, 0), 1.0, 1.5);
+        waves = adjustContrastAndBrightness(vec3(waves.x, 0, 0), 1.0, 1.25);
     else
         waves = adjustContrastAndBrightness(waves, 1., 0.8);
     vec2 grid = p * 200.;
