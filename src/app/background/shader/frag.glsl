@@ -1,10 +1,6 @@
 precision highp float;
 precision highp sampler2D;
 
-// normalized coordinates, (0,0) is the bottom left
-// in vec2 uv;
-// // resulting fragment color, you may name it whatever you like
-// out vec4 out_color;
 varying vec2 vUv;
 
 // size of the canvas in pixels
@@ -23,30 +19,28 @@ float noise(in vec2 p) {
 
 float noise4(vec2 p) {
     float f = 0.0;
-    f += 0.5000 * noise(p); 
-    p = m * p * 2.02;
-    f += 0.2500 * noise(p); 
-    p = m * p * 2.03;
-    f += 0.1250 * noise(p); 
-    p = m * p * 2.01;
-    f += 0.0625 * noise(p);
-    return f / 0.9375;
+    float weight = 0.5;
+    float scale = 1.0;
+    for (int i = 0; i < 4; i++) {
+        f += weight * noise(p);
+        p = m * p * 2.02;
+        weight *= 0.5;
+        scale += weight;
+    }
+    return f / scale;
 }
 
 float noise6(vec2 p) {
     float f = 0.0;
-    f += 0.500000 * (0.5 + 0.5 * noise(p)); 
-    p = m * p * 2.02;
-    f += 0.250000 * (0.5 + 0.5 * noise(p)); 
-    p = m * p * 2.03;
-    f += 0.125000 * (0.5 + 0.5 * noise(p)); 
-    p = m * p * 2.01;
-    f += 0.062500 * (0.5 + 0.5 * noise(p)); 
-    p = m * p * 2.04;
-    f += 0.031250 * (0.5 + 0.5 * noise(p)); 
-    p = m * p * 2.01;
-    f += 0.015625 * (0.5 + 0.5 * noise(p));
-    return f / 0.96875;
+    float weight = 0.5;
+    float totalWeight = 0.0;
+    for (int i = 0; i < 4; i++) { // Reduced from 6 to 4 octaves
+        f += weight * (0.5 + 0.5 * noise(p));
+        p = m * p * (2.02 + float(i) * 0.01); // Simplifying scale changes slightly
+        totalWeight += weight;
+        weight *= 0.5;
+    }
+    return f / totalWeight;
 }
 
 vec2 noise4_2(vec2 p) {
@@ -58,13 +52,18 @@ vec2 noise6_2(vec2 p) {
 }
 
 float totalNoise(vec2 q, out vec4 ron) {
-    q += 0.03 * sin(vec2(0.27, 0.23) * u_time * t_scale + length(q) * vec2(4.1, 4.3));
-    vec2 o = noise6_2(0.9 * q);
-    o += 0.04 * sin(vec2(0.12, 0.14) * u_time * t_scale + length(o));
-    vec2 n = noise4_2(3.0 * o);
+    vec2 timeVec = vec2(0.27, 0.23) * u_time * t_scale;
+    q += 0.03 * sin(timeVec + length(q) * vec2(4.1, 4.3)); // Precompute part of sin calculation
+    vec2 o = noise6_2(0.9 * q); // Assuming noise6_2 is already optimized
+    o += 0.04 * sin(vec2(0.12, 0.14) * u_time * t_scale + length(o)); // Same as above for sin
+
+    vec2 n = noise4_2(3.0 * o); // Assuming noise4_2 is optimized
     ron = vec4(o, n);
-    float f = 0.5 + 0.5 * noise4(1.8 * q + 6.0 * n);
-    return mix(f, f * f * f * 3.5, f * abs(n.x));
+    float f = 0.5 + 0.5 * noise4(1.8 * q + 6.0 * n); // Try reducing complexity in noise4 if needed
+
+    // Simplify mix calculations
+    float ff = f * f;
+    return mix(f, ff * ff * 3.5, f * abs(n.x));
 }
 
 vec3 getColor(vec2 p) {
@@ -92,17 +91,12 @@ vec3 getColor(vec2 p) {
 }
 
 vec3 blur(vec2 uv) {
-    float blurSize = 50. / u_resolution.y * u_scale;
+    float blurSize = 25.0 / u_resolution.y * u_scale; // Reduced blur size
     vec3 col = vec3(0.0);
-    col += getColor(uv + vec2(-blurSize, -blurSize)) * 0.05;
-    col += getColor(uv + vec2(blurSize, -blurSize)) * 0.05;
-    col += getColor(uv + vec2(-blurSize, blurSize)) * 0.05;
-    col += getColor(uv + vec2(blurSize, blurSize)) * 0.05;
-    col += getColor(uv + vec2(-blurSize, 0.0)) * 0.1;
-    col += getColor(uv + vec2(blurSize, 0.0)) * 0.1;
-    col += getColor(uv + vec2(0.0, -blurSize)) * 0.1;
-    col += getColor(uv + vec2(0.0, blurSize)) * 0.1;
-    col += getColor(uv) * 0.4;
+    col += getColor(uv + vec2(-blurSize, 0.0)) * 0.25;
+    col += getColor(uv + vec2(blurSize, 0.0)) * 0.25;
+    col += getColor(uv + vec2(0.0, -blurSize)) * 0.25;
+    col += getColor(uv + vec2(0.0, blurSize)) * 0.25;
     return col;
 }
 

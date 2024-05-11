@@ -13,6 +13,13 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        orbitron: [`var(--font-orbitron-font)`],
+        eight_track_hollow: [`var(--font-eight_track_hollow-font)`],
+        eight_track: [`var(--font-eight_track-font)`],
+        astral_delight: [`var(--font-astral_delight-font)`],
+        astral_delight_hollow: [`var(--font-astral_delight_hollow-font)`],
+      },
     },
   },
   plugins: [],
