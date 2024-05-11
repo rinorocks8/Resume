@@ -19,12 +19,12 @@ const eight_track = localFont({
 });
 
 const astral_delight_hollow = localFont({
-  src: "../../public/Astral Delight.ttf",
+  src: "../../public/Astral_Delight.ttf",
   variable: "--font-astral_delight_hollow-font",
 });
 
 const astral_delight = localFont({
-  src: "../../public/Astral Delight Black.ttf",
+  src: "../../public/Astral_Delight_Black.ttf",
   variable: "--font-astral_delight-font",
 });
 
