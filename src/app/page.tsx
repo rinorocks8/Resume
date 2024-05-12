@@ -3,6 +3,7 @@
 import AboutMe from "./homeComponents/aboutMe/AboutMe";
 import Background from "./homeComponents/background/background";
 import FeaturedProjects from "./homeComponents/featuredProjects/FeaturedProjects";
+import Image from "next/image";
 import MenuBar from "./homeComponents/menuBar/MenuBar";
 import { Orbitron } from "next/font/google";
 import localFont from "next/font/local";
@@ -96,8 +97,37 @@ export default function Home() {
             </div>
           </div>
           {/* Menu */}
-          <div className="w-full">
-            <MenuBar setDarkMode={setDarkMode} />
+          <div className="relative w-full">
+            <div className="absolute -top-16 right-0 flex flex-row">
+              <button className="w-10 mb-1" onClick={() => setDarkMode(true)}>
+                <Image
+                  src="/Fireboy2.webp"
+                  alt="Red Mode Selector"
+                  width={400}
+                  height={400}
+                  style={{
+                    filter: "drop-shadow(0px 0px 10px rgba(255, 0, 0, 1))",
+                  }}
+                />
+              </button>
+              <button
+                className="w-[55px] -ml-2.5"
+                onClick={() => setDarkMode(false)}
+              >
+                <Image
+                  src="/Watergirl2-0.webp"
+                  alt="Blue Mode Selector"
+                  width={400}
+                  height={400}
+                  style={{
+                    filter: "drop-shadow(0px 0px 10px rgba(0, 0, 255, 1))",
+                  }}
+                />
+              </button>
+            </div>
+            <div className="z-10">
+              <MenuBar />
+            </div>
           </div>
           <div className="w-full flex-1 flex-row gap-4 mt-8 flex">
             <div className="flex-1 h-full flex-col flex gap-4 overflow-hidden">
