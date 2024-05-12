@@ -1,8 +1,9 @@
 "use client";
 
-import AboutMe from "./aboutMe/AboutMe";
-import Background from "./background/background";
-import MenuBar from "./menuBar/MenuBar";
+import AboutMe from "./homeComponents/aboutMe/AboutMe";
+import Background from "./homeComponents/background/background";
+import FeaturedProjects from "./homeComponents/featuredProjects/FeaturedProjects";
+import MenuBar from "./homeComponents/menuBar/MenuBar";
 import { Orbitron } from "next/font/google";
 import localFont from "next/font/local";
 import { useState } from "react";
@@ -98,8 +99,13 @@ export default function Home() {
           <div className="w-full">
             <MenuBar setDarkMode={setDarkMode} />
           </div>
-          <div className="flex-1 w-full flex-row gap-4 mt-8 flex">
-            <div className="bg-chrome rounded-3xl flex-1 h-full"></div>
+          <div className="w-full flex-1 flex-row gap-4 mt-8 flex">
+            <div className="flex-1 h-full flex-col flex gap-4 overflow-hidden">
+              <div className="bg-chrome rounded-3xl flex-1"></div>
+              <div className="bg-chrome rounded-3xl flex-row">
+                <FeaturedProjects />
+              </div>
+            </div>
             <div className="bg-chrome rounded-3xl flex flex-col p-8 py-6 items-center">
               <AboutMe />
             </div>

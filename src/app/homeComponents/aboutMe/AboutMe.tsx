@@ -38,7 +38,7 @@ export default function AboutMe() {
               {`I am a software engineer with a passion for web
                         development. I prefer to work with React, React Native
                         (Expo), Typescript, Python, Terraform, and many AWS
-                        services, but I'm quick to learn new things.`}
+                        services, but I'm quick to learn new things!`}
             </p>
             <br />
             <p>

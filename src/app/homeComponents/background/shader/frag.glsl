@@ -131,7 +131,7 @@ void main() {
 
     // bg, dots, mask
     vec3 finalColor = mix(waves, waves*1.5, mask);
-    finalColor = clamp(u_time * 4.0, 0.0, 1.0) * finalColor;
+    finalColor = clamp(u_time * 2.0, 0.0, 1.0) * finalColor;
 
     gl_FragColor.rgba = vec4(finalColor, 1.0);
 }
