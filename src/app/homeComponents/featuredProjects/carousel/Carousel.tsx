@@ -2,7 +2,7 @@ import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
 } from "react-icons/io";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { EmblaOptionsType } from "embla-carousel";
 import { IconType } from "react-icons";
@@ -93,12 +93,17 @@ const Carousel: React.FC<PropType> = (props) => {
 export default Carousel;
 
 const Arrow = ({ Component }: { Component: IconType }) => {
+  const [hover, setHover] = useState(false);
   return (
     <div>
       <svg height="0" width="0">
         <defs>
           <radialGradient id="0">
             <stop offset="0%" stop-color="#b2becf" />
+            <stop offset="100%" stop-color="#f7fafc" />
+          </radialGradient>
+          <radialGradient id="1">
+            <stop offset="0%" stop-color="#8da6ed" />
             <stop offset="100%" stop-color="#f7fafc" />
           </radialGradient>
         </defs>
@@ -108,12 +113,15 @@ const Arrow = ({ Component }: { Component: IconType }) => {
         style={{
           boxShadow: "0px 0px 2px 2px rgba(226, 232, 240, 1)",
         }}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
       >
         <Component
           size="36"
           className="absolute -ml-1 -mt-1"
           style={{
-            fill: "url(#0)",
+            fill: hover ? "url(#1)" : "url(#0)",
+            transition: "fill 2.0s",
           }}
         />
       </div>
