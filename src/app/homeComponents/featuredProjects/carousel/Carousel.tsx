@@ -31,21 +31,28 @@ const Carousel: React.FC<PropType> = (props) => {
 
   return (
     <div className="flex-1 h-full flex-col flex overflow-hidden">
-      <div className="relative flex flex-row overflow-hidden h-full">
-        <button onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
+      <div className="relative flex flex-row h-full">
+        <button
+          onClick={onPrevButtonClick}
+          disabled={prevBtnDisabled}
+          className="z-10"
+        >
           <Arrow Component={IoMdArrowDropleftCircle} />
         </button>
-        <div className="h-full flex-1 overflow-hidden" ref={emblaRef}>
+        <div
+          className="h-full flex-1 overflow-hidden -my-10 py-10 z-10"
+          ref={emblaRef}
+        >
           <div className="touch-pan-y touch-pinch-zoom flex flex-row">
             {slides.map((index) => (
               <div
-                className="min-w-20 px-2"
+                className="min-w-20 px-2 -z-10"
                 key={index}
                 style={{
-                  flex: "0 0 33%",
+                  flex: "0 0 33.333%",
                 }}
               >
-                <div className="bg-black aspect-[1.5] rounded-2xl flex items-center justify-center">
+                <div className="bg-black aspect-[1.5] rounded-2xl flex items-center justify-center shadow-md shadow-zinc-700">
                   <div className="">{index + 1}</div>
                 </div>
               </div>
@@ -61,7 +68,7 @@ const Carousel: React.FC<PropType> = (props) => {
           <button key={index} onClick={() => onDotButtonClick(index)}>
             <div className="relative rounded-full aspect-square h-2.5">
               <div className="absolute z-20 aspect-square h-2.5 flex">
-                <div className="ml-[1px] m-[0.5px] flex-1 rounded-full bg-blue-900" />
+                <div className="ml-[1px] m-[0.5px] flex-1 rounded-full bg-blue-900 dark:bg-red-800" />
               </div>
               <div
                 className={
@@ -97,7 +104,7 @@ const Arrow = ({ Component }: { Component: IconType }) => {
         </defs>
       </svg>
       <div
-        className="rounded-full w-7 h-7 mx-2 bg-blue-900"
+        className="rounded-full w-7 h-7 mx-2 bg-blue-900 dark:bg-red-800"
         style={{
           boxShadow: "0px 0px 2px 2px rgba(226, 232, 240, 1)",
         }}

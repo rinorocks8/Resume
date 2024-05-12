@@ -6,7 +6,7 @@ export default function AboutMe() {
   return (
     <div className="flex-1 flex flex-col">
       {/* About Me */}
-      <h2 className="text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-3xl font-astral_delight pb-4 inline-block">
+      <h2 className="text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-4 inline-block">
         ABOUT ME
       </h2>
       <div className="relative w-auto flex-1">
