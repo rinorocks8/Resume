@@ -121,7 +121,6 @@ const Arrow = ({ Component }: { Component: IconType }) => {
           className="absolute -ml-1 -mt-1"
           style={{
             fill: hover ? "url(#1)" : "url(#0)",
-            transition: "fill 2.0s",
           }}
         />
       </div>

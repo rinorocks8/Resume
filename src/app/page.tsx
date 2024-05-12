@@ -50,6 +50,15 @@ export default function Home() {
       <div className="absolute h-screen w-screen">
         <Background darkMode={darkMode} />
       </div>
+
+      {/* <div className="z-40 absolute top-10 right-10 p-10 bg-green-600">
+        <div className="bg-chrome rounded-full h-10 w-10 items-center justify-center flex">
+          <h2 className="text-blue-800 pb-[2.5px] pl-0.5  dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight">
+            R
+          </h2>
+        </div>
+      </div> */}
+
       <div className="absolute h-screen w-screen justify-center flex">
         <div className="flex h-full flex-col items-center justify-center py-24 max-w-[66%] w-full flex-1">
           {/* Name */}

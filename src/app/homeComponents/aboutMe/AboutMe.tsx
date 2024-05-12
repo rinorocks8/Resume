@@ -46,20 +46,20 @@ export default function AboutMe() {
                         peers.`}
             </p>
           </div>
-          <div className="flex flex-row items-center justify-center gap-4">
+          <div className="flex flex-row items-center justify-center gap-2">
             <a
               href="https://www.linkedin.com/in/ryancircelli/"
               target="_blank"
               rel="noreferrer"
             >
-              <FaLinkedin size="32" color="#0e76a8" />
+              <FaLinkedin size="24" color="#0e76a8" />
             </a>
             <a
               href="https://github.com/ryancircelli"
               target="_blank"
               rel="noreferrer"
             >
-              <IoLogoGithub size="32" color="#333" />
+              <IoLogoGithub size="24" color="#333" />
             </a>
           </div>
         </div>
