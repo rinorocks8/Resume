@@ -116,7 +116,7 @@ void main() {
     if (u_darkMode) {
         blendFactor = 1.0 - blendFactor;
     }
-    waves = mix( vec3(luminanceValue) * vec3(waves.x + waves.y + waves.z, 0,0),vec3(luminanceValue) * waves, blendFactor);
+    waves = mix( vec3(luminanceValue) * vec3(waves.x + waves.y + waves.z, 0,0),vec3(luminanceValue * 1.5) * waves, blendFactor);
     
     waves = mix(vec3(luminanceValue * 0.5), waves, 0.5);
 

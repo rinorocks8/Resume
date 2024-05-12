@@ -98,8 +98,11 @@ export default function Home() {
           </div>
           {/* Menu */}
           <div className="relative w-full">
-            <div className="absolute -top-16 right-0 flex flex-row">
-              <button className="w-10 mb-1" onClick={() => setDarkMode(true)}>
+            <div className="absolute -top-16 -right-0.5 flex flex-row">
+              <button
+                className="w-[40px] mb-1 h-[65px]"
+                onClick={() => setDarkMode(true)}
+              >
                 <Image
                   src="/Fireboy2.webp"
                   alt="Red Mode Selector"
@@ -111,7 +114,7 @@ export default function Home() {
                 />
               </button>
               <button
-                className="w-[55px] -ml-2.5"
+                className="w-[55px] h-[70px] -ml-2.5"
                 onClick={() => setDarkMode(false)}
               >
                 <Image
