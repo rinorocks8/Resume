@@ -47,7 +47,8 @@ export default function MenuBar({}: {}) {
         <div className="w-full h-10 bg-white rounded-full flex shadow-sm shadow-gray-400">
           <div className="overflow-hidden group w-full h-full bg-white rounded-full flex-row flex bg-chrome justify-evenly group">
             <div className="h-full w-20 menu-item-edge hover:menu-item-hover group pointer-events-none"></div>
-            <div
+            <Link
+              href="/"
               className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover hover:menu-item-hover
               ${
                 pathname === "/"
@@ -56,14 +57,14 @@ export default function MenuBar({}: {}) {
               }
             `}
             >
-              <Link
-                href="/"
+              <div
                 className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
               >
                 HOME
-              </Link>
-            </div>
-            <div
+              </div>
+            </Link>
+            <Link
+              href="/projects"
               className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
                 ${
                   pathname === "/projects"
@@ -72,14 +73,14 @@ export default function MenuBar({}: {}) {
                 }
               `}
             >
-              <Link
-                href="/projects"
+              <div
                 className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
               >
                 PROJECTS
-              </Link>
-            </div>
-            <div
+              </div>
+            </Link>
+            <Link
+              href="/blog"
               className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
                 ${
                   pathname === "/blog"
@@ -88,14 +89,14 @@ export default function MenuBar({}: {}) {
                 }
               `}
             >
-              <Link
-                href="/blog"
+              <div
                 className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
               >
                 BLOG
-              </Link>
-            </div>
-            <div
+              </div>
+            </Link>
+            <Link
+              href="/about"
               className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
                 ${
                   pathname === "/about"
@@ -104,14 +105,14 @@ export default function MenuBar({}: {}) {
                 }
               `}
             >
-              <Link
-                href="/about"
+              <div
                 className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
               >
                 ABOUT
-              </Link>
-            </div>
-            <div
+              </div>
+            </Link>
+            <Link
+              href="/contact"
               className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
                 ${
                   pathname === "/contact"
@@ -120,13 +121,12 @@ export default function MenuBar({}: {}) {
                 }
               `}
             >
-              <Link
-                href="/contact"
+              <div
                 className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
               >
                 CONTACT
-              </Link>
-            </div>
+              </div>
+            </Link>
             <div className="h-full w-20 menu-item-edge hover:menu-item-hover  pointer-events-none"></div>
           </div>
         </div>
