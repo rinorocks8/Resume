@@ -5,6 +5,7 @@ import Background from "./homeComponents/background/background";
 import FeaturedProjects from "./homeComponents/featuredProjects/FeaturedProjects";
 import Image from "next/image";
 import MenuBar from "./homeComponents/menuBar/MenuBar";
+import Name from "./homeComponents/Name";
 import { Orbitron } from "next/font/google";
 import localFont from "next/font/local";
 import { useState } from "react";
@@ -62,49 +63,7 @@ export default function Home() {
       <div className="absolute h-screen w-screen justify-center flex">
         <div className="flex h-full flex-col items-center justify-center py-24 max-w-[66%] w-full flex-1">
           {/* Name */}
-          <div className="items-center justify-start flex w-full py-4">
-            <button
-              className={`z-10 text-blue-900 dark:text-red-900 text-5xl font-eight_track_hollow`}
-            >
-              Ryan Circelli
-            </button>
-            <div
-              className={`absolute ml-3 mb-4 opacity-85 pointer-events-none text-blue-900 dark:text-red-900 text-5xl font-eight_track_hollow font-bold`}
-              aria-hidden="true"
-            >
-              Ryan Circelli
-            </div>
-            <div
-              className={`absolute ml-6 mb-8 opacity-70 pointer-events-none text-blue-900 dark:text-red-900 text-5xl font-eight_track_hollow font-bold`}
-              aria-hidden="true"
-            >
-              Ryan Circelli
-            </div>
-            <div
-              className={`pointer-events-none absolute text-white text-5xl font-eight_track opacity-90`}
-              style={{
-                letterSpacing: "2.425px",
-                fontSize: "48.5px",
-                marginLeft: "1.5px",
-                marginTop: "2px",
-              }}
-              aria-hidden="true"
-            >
-              Ryan
-            </div>
-            <div
-              className={`pointer-events-none absolute text-white text-5xl font-eight_track opacity-90`}
-              style={{
-                letterSpacing: "2.425px",
-                fontSize: "48.5px",
-                marginLeft: "107.5px",
-                marginTop: "2px",
-              }}
-              aria-hidden="true"
-            >
-              Circelli
-            </div>
-          </div>
+          <Name />
           {/* Menu */}
           <div className="relative w-full">
             <div className="absolute -top-16 -right-0.5 flex flex-row">
@@ -143,9 +102,18 @@ export default function Home() {
           </div>
           <div className="w-full flex-1 flex-row gap-4 mt-8 flex">
             <div className="flex-1 h-full flex-col flex gap-4 overflow-hidden">
-              <div className="bg-chrome rounded-3xl flex-1"></div>
-              <div className="bg-chrome rounded-3xl flex-row">
+              <div className="bg-chrome rounded-3xl flex-1">
                 <FeaturedProjects />
+              </div>
+              <div className="bg-chrome rounded-3xl flex-row h-56">
+                <div className="p-4 w-full">
+                  <h2 className="px-2 text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-1 inline-block">
+                    RECENT POSTS
+                  </h2>
+                  <div className="mt-6 text-black font-medium text-xs font-orbitron flex-1">
+                    <p>{`Ex: Building Lifted’s API with Edge Functions`}</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="bg-chrome rounded-3xl flex flex-col p-8 py-6 items-center">

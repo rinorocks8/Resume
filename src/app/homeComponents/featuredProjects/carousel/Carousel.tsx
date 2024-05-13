@@ -11,7 +11,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { usePrevNextButtons } from "./EmblaCarouselArrowButtons";
 
 type PropType = {
-  slides: number[];
+  slides: string[];
   options?: EmblaOptionsType;
 };
 
@@ -35,31 +35,46 @@ const Carousel: React.FC<PropType> = (props) => {
         <button
           onClick={onPrevButtonClick}
           disabled={prevBtnDisabled}
-          className="z-10"
+          className="z-20 mx-2 ml-1"
         >
           <Arrow Component={IoMdArrowDropleftCircle} />
         </button>
-        <div
-          className="h-full flex-1 overflow-hidden -my-10 py-10 z-10"
-          ref={emblaRef}
-        >
-          <div className="touch-pan-y touch-pinch-zoom flex flex-row">
-            {slides.map((index) => (
-              <div
-                className="min-w-20 px-2 -z-10"
-                key={index}
-                style={{
-                  flex: "0 0 33.333%",
-                }}
-              >
-                <div className="bg-black aspect-[1.5] rounded-2xl flex items-center justify-center shadow-md shadow-zinc-700">
-                  <div className="">{index + 1}</div>
+        <div className="flex-1 h-full pt-2">
+          <div
+            className="pointer-events-none absolute -right-[2px] -left-[1px] top-0 -bottom-2 z-20 rounded-2xl mx-10"
+            style={{
+              boxShadow: `
+                inset 0px 0px 5px 5px rgba(178, 190, 207, 1),
+                inset 0px 0px 4px 4px rgba(178, 190, 207, 1)
+              `,
+            }}
+          />
+          <div
+            className="h-full flex-1 -my-2 py-2 overflow-hidden rounded-2xl"
+            ref={emblaRef}
+          >
+            <div className="touch-pan-y touch-pinch-zoom flex flex-row">
+              {slides.map((index) => (
+                <div
+                  className="min-w-20 px-2 -z-10"
+                  key={index}
+                  style={{
+                    flex: "0 0 80%",
+                  }}
+                >
+                  <div className="bg-black aspect-[1.5] rounded-2xl flex items-center justify-center shadow-md shadow-zinc-700">
+                    <div className="">{index}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-        <button onClick={onNextButtonClick} disabled={prevBtnDisabled}>
+        <button
+          onClick={onNextButtonClick}
+          disabled={prevBtnDisabled}
+          className="z-20 mx-2 mr-1"
+        >
           <Arrow Component={IoMdArrowDroprightCircle} />
         </button>
       </div>
@@ -109,7 +124,7 @@ const Arrow = ({ Component }: { Component: IconType }) => {
         </defs>
       </svg>
       <div
-        className="rounded-full w-7 h-7 mx-2 bg-blue-900 dark:bg-red-800"
+        className="rounded-full w-7 h-7 bg-blue-900 dark:bg-red-800"
         style={{
           boxShadow: "0px 0px 2px 2px rgba(226, 232, 240, 1)",
         }}
