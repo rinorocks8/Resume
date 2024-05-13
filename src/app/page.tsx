@@ -130,9 +130,55 @@ export default function Home() {
               </div>
               <div className="bg-chrome rounded-3xl h-56">
                 <div className="p-4 w-full h-full flex-col flex">
-                  <h2 className="px-2 text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-1">
-                    RECENT POSTS
-                  </h2>
+                  <div className="flex-row flex -my-1 -mt-2">
+                    <a href="/blog">
+                      <h2 className="px-2 text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-1 flex-row items-center flex">
+                        RECENT POSTS
+                        <div className="-ml-2 -mr-5">
+                          <svg
+                            width={48}
+                            height={48}
+                            className="text-blue-800 dark:text-red-800"
+                            viewBox="0 0 100 100"
+                            transform="skewX(-5)"
+                          >
+                            <rect
+                              x="52.5"
+                              y="-10"
+                              width="27.2"
+                              height="14"
+                              fill="white"
+                              transform="rotate(45)"
+                            />
+                            <rect
+                              x="-17.2"
+                              y="65.7"
+                              width="27.2"
+                              height="14"
+                              fill="white"
+                              transform="rotate(-45)"
+                            />
+                            <rect
+                              x="55"
+                              y="-7.5"
+                              width="22.2"
+                              height="9"
+                              fill="rgb(30, 64, 175)"
+                              transform="rotate(45)"
+                            />
+                            <rect
+                              x="-14.7"
+                              y="68.2"
+                              width="22.2"
+                              height="9"
+                              fill="rgb(30, 64, 175)"
+                              transform="rotate(-45)"
+                            />
+                          </svg>
+                        </div>
+                      </h2>
+                    </a>
+                  </div>
                   <div className="mt-2 text-black font-medium text-base font-orbitron flex-1 overflow-hidden relative mb-2">
                     <div
                       className="pointer-events-none z-10 absolute -top-2 right-4 left-4 bottom-0"
@@ -145,12 +191,12 @@ export default function Home() {
                     {articles.map((article, index) => (
                       <a
                         key={index}
-                        className="flex flex-col gap-2 pb-1"
+                        className="flex flex-col pb-1"
                         href={article.link}
                         target="_blank"
                         rel="noreferrer"
                       >
-                        <div className="flex flex-row gap-2 mx-2">
+                        <div className="flex flex-row gap-4 mx-2">
                           <div className="mt-[6.5px] items-center">
                             <Dot size={12} />
                           </div>
