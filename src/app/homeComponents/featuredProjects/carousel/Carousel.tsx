@@ -4,6 +4,7 @@ import {
 } from "react-icons/io";
 import React, { useCallback, useEffect, useState } from "react";
 
+import Dot from "@/app/sharedComponents/Dot";
 import { EmblaOptionsType } from "embla-carousel";
 import { IconType } from "react-icons";
 import { useDotButton } from "./EmblaCarouselDotButton";
@@ -72,7 +73,7 @@ const Carousel: React.FC<PropType> = (props) => {
         </div>
         <button
           onClick={onNextButtonClick}
-          disabled={prevBtnDisabled}
+          disabled={nextBtnDisabled}
           className="z-20 mx-2 mr-1"
         >
           <Arrow Component={IoMdArrowDroprightCircle} />
@@ -81,23 +82,7 @@ const Carousel: React.FC<PropType> = (props) => {
       <div className="flex flex-row items-center justify-center gap-4 mt-4 mb-1">
         {slides.map((_, index) => (
           <button key={index} onClick={() => onDotButtonClick(index)}>
-            <div className="relative rounded-full aspect-square h-2.5">
-              <div className="absolute z-20 aspect-square h-2.5 flex">
-                <div className="ml-[1px] m-[0.5px] flex-1 rounded-full bg-blue-900 dark:bg-red-800" />
-              </div>
-              <div
-                className={
-                  "absolute z-20 rounded-full aspect-square h-2.5 " +
-                  (index === selectedIndex ? " bg-transparent" : " bg-white  ")
-                }
-                style={{
-                  boxShadow: `
-                  inset 0px 0px 1px 1px rgba(226, 232, 240, 1),
-                  0px 0px 2px 2px rgba(226, 232, 240, 1)
-                `,
-                }}
-              />
-            </div>
+            <Dot index={index} selectedIndex={selectedIndex} />
           </button>
         ))}
       </div>
@@ -114,12 +99,12 @@ const Arrow = ({ Component }: { Component: IconType }) => {
       <svg height="0" width="0">
         <defs>
           <radialGradient id="0">
-            <stop offset="0%" stop-color="#b2becf" />
-            <stop offset="100%" stop-color="#f7fafc" />
+            <stop offset="0%" stopColor="#b2becf" />
+            <stop offset="100%" stopColor="#f7fafc" />
           </radialGradient>
           <radialGradient id="1">
-            <stop offset="0%" stop-color="#8da6ed" />
-            <stop offset="100%" stop-color="#f7fafc" />
+            <stop offset="0%" stopColor="#8da6ed" />
+            <stop offset="100%" stopColor="#f7fafc" />
           </radialGradient>
         </defs>
       </svg>

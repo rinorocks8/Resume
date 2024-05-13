@@ -1,14 +1,17 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import AboutMe from "./homeComponents/aboutMe/AboutMe";
 import Background from "./homeComponents/background/background";
+import Dot from "./sharedComponents/Dot";
 import FeaturedProjects from "./homeComponents/featuredProjects/FeaturedProjects";
 import Image from "next/image";
 import MenuBar from "./homeComponents/menuBar/MenuBar";
 import Name from "./homeComponents/Name";
 import { Orbitron } from "next/font/google";
+import { getArticles } from "./getFeed";
 import localFont from "next/font/local";
-import { useState } from "react";
 
 const orbitron_font = Orbitron({
   subsets: ["latin"],
@@ -37,6 +40,26 @@ const astral_delight = localFont({
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [articles, setArticles] = useState<
+    {
+      author: string;
+      content: string;
+      description: string;
+      link: string;
+      pubDate: string;
+      thumbnail: string;
+      title: string;
+    }[]
+  >([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getArticles();
+      setArticles(data.items);
+      console.log(data.items);
+    };
+    getData();
+  }, []);
 
   return (
     <main
@@ -105,13 +128,39 @@ export default function Home() {
               <div className="bg-chrome rounded-3xl flex-1">
                 <FeaturedProjects />
               </div>
-              <div className="bg-chrome rounded-3xl flex-row h-56">
-                <div className="p-4 w-full">
-                  <h2 className="px-2 text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-1 inline-block">
+              <div className="bg-chrome rounded-3xl h-56">
+                <div className="p-4 w-full h-full flex-col flex">
+                  <h2 className="px-2 text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-1">
                     RECENT POSTS
                   </h2>
-                  <div className="mt-6 text-black font-medium text-xs font-orbitron flex-1">
-                    <p>{`Ex: Building Lifted’s API with Edge Functions`}</p>
+                  <div className="mt-2 text-black font-medium text-base font-orbitron flex-1 overflow-hidden relative mb-2">
+                    <div
+                      className="pointer-events-none z-10 absolute -top-2 right-4 left-4 bottom-0"
+                      style={{
+                        boxShadow: `
+                        inset 0px 0px 10px 10px rgba(178, 190, 207, 1)
+                      `,
+                      }}
+                    />
+                    {articles.map((article, index) => (
+                      <a
+                        key={index}
+                        className="flex flex-col gap-2 pb-1"
+                        href={article.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <div className="flex flex-row gap-2 mx-2">
+                          <div className="mt-[6.5px] items-center">
+                            <Dot size={12} />
+                          </div>
+                          <p>
+                            <u>{article.title}</u>
+                            {" - " + new Date(article.pubDate).toDateString()}
+                          </p>
+                        </div>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
