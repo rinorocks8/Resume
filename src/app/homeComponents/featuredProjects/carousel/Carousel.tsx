@@ -32,15 +32,20 @@ const Carousel: React.FC<PropType> = (props) => {
 
   return (
     <div className="flex-1 h-full flex-col flex overflow-hidden">
-      <div className="relative flex flex-row h-full">
+      <div
+        className="relative h-full grid"
+        style={{
+          gridTemplateColumns: "40px minmax(0, 1fr) 40px",
+        }}
+      >
         <button
           onClick={onPrevButtonClick}
           disabled={prevBtnDisabled}
-          className="z-20 mx-2 ml-1"
+          className="z-20 mx-2 ml-1 col-span-1"
         >
           <Arrow Component={IoMdArrowDropleftCircle} />
         </button>
-        <div className="flex-1 h-full pt-2">
+        <div className="h-full pt-2 col-span-1">
           <div
             className="pointer-events-none absolute -right-[2px] -left-[1px] top-0 -bottom-2 z-20 rounded-2xl mx-10"
             style={{
@@ -51,13 +56,13 @@ const Carousel: React.FC<PropType> = (props) => {
             }}
           />
           <div
-            className="h-full flex-1 -my-2 py-2 overflow-hidden rounded-2xl"
+            className="h-full flex-1 -my-2 py-2 mb-4 overflow-hidden rounded-2xl"
             ref={emblaRef}
           >
             <div className="touch-pan-y touch-pinch-zoom flex flex-row">
               {slides.map((index) => (
                 <div
-                  className="min-w-20 px-2 -z-10"
+                  className="px-2 -z-10"
                   key={index}
                   style={{
                     flex: "0 0 80%",
@@ -74,12 +79,12 @@ const Carousel: React.FC<PropType> = (props) => {
         <button
           onClick={onNextButtonClick}
           disabled={nextBtnDisabled}
-          className="z-20 mx-2 mr-1"
+          className="z-20 mx-2 mr-1 col-span-1"
         >
           <Arrow Component={IoMdArrowDroprightCircle} />
         </button>
       </div>
-      <div className="flex flex-row items-center justify-center gap-4 mt-4 mb-1">
+      <div className="flex flex-row items-center justify-center gap-4 mb-1">
         {slides.map((_, index) => (
           <button key={index} onClick={() => onDotButtonClick(index)}>
             <Dot index={index} selectedIndex={selectedIndex} />
