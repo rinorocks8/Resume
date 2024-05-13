@@ -1,19 +1,20 @@
-import Caret from "@/app/sharedComponents/Caret";
+import Caret from "@/app/_shared/Caret";
 import { FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import { IoLogoGithub } from "react-icons/io";
+import Link from "next/link";
 
 export default function AboutMe() {
   return (
     <div className="flex-1 flex flex-col">
       {/* About Me */}
-      <div className="flex-row flex -my-1 -mt-2">
-        <a href="/about">
+      <div className="flex-row flex -my-1 -mt-2 mb-0">
+        <Link href="/about">
           <h2 className="px-2 text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-1 flex-row items-center flex">
             ABOUT ME
             <Caret />
           </h2>
-        </a>
+        </Link>
       </div>
       <div className="relative w-auto flex-1">
         <div className="absolute left-0 right-0 top-0 bottom-0 flex flex-col">
@@ -39,7 +40,7 @@ export default function AboutMe() {
             />
           </div>
           {/* Text */}
-          <div className="text-center mt-6 text-black font-medium text-xs font-orbitron flex-1">
+          <div className="text-center mt-6 text-black font-medium text-sm font-orbitron flex-1">
             <p>
               {`I am a software engineer with a passion for web
                         development. I prefer to work with React, React Native
@@ -53,20 +54,20 @@ export default function AboutMe() {
             </p>
           </div>
           <div className="flex flex-row items-center justify-center gap-2">
-            <a
+            <Link
               href="https://www.linkedin.com/in/ryancircelli/"
               target="_blank"
               rel="noreferrer"
             >
               <FaLinkedin size="24" color="#0e76a8" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://github.com/ryancircelli"
               target="_blank"
               rel="noreferrer"
             >
               <IoLogoGithub size="24" color="#333" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

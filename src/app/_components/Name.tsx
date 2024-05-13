@@ -1,13 +1,16 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Name() {
   return (
     <div className="items-center justify-start flex w-full py-4">
-      <button
+      <Link
         className={`z-10 text-blue-900 dark:text-red-900 text-5xl font-eight_track_hollow`}
+        href="/"
       >
         Ryan Circelli
-      </button>
+      </Link>
       <div
         className={`absolute ml-3 mb-4 opacity-85 pointer-events-none text-blue-900 dark:text-red-900 text-5xl font-eight_track_hollow font-bold`}
         aria-hidden="true"

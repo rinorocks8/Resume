@@ -4,7 +4,7 @@ import {
 } from "react-icons/io";
 import React, { useCallback, useEffect, useState } from "react";
 
-import Dot from "@/app/sharedComponents/Dot";
+import Dot from "@/app/_shared/Dot";
 import { EmblaOptionsType } from "embla-carousel";
 import { IconType } from "react-icons";
 import { useDotButton } from "./EmblaCarouselDotButton";
@@ -31,9 +31,9 @@ const Carousel: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <div className="flex-1 h-full flex-col flex overflow-hidden">
+    <div className="flex-1 w-full flex-col flex items-center justify-center">
       <div
-        className="relative h-full grid"
+        className="relative h-full grid w-full"
         style={{
           gridTemplateColumns: "40px minmax(0, 1fr) 40px",
         }}
@@ -45,7 +45,7 @@ const Carousel: React.FC<PropType> = (props) => {
         >
           <Arrow Component={IoMdArrowDropleftCircle} />
         </button>
-        <div className="h-full pt-2 col-span-1">
+        <div className="min-h-full pt-2 col-span-1">
           <div
             className="pointer-events-none absolute -right-[2px] -left-[1px] top-0 -bottom-2 z-20 rounded-2xl mx-10"
             style={{
@@ -69,7 +69,7 @@ const Carousel: React.FC<PropType> = (props) => {
                   }}
                 >
                   <div className="bg-black aspect-[1.5] rounded-2xl flex items-center justify-center shadow-md shadow-zinc-700">
-                    <div className="">{index}</div>
+                    <div className="text-xl">{index}</div>
                   </div>
                 </div>
               ))}
