@@ -48,11 +48,11 @@ export default function MenuBar({}: {}) {
           <div className="overflow-hidden group w-full h-full bg-white rounded-full flex-row flex bg-chrome justify-evenly group">
             <div className="h-full w-20 menu-item-edge hover:menu-item-hover group pointer-events-none"></div>
             <div
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center
+              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover hover:menu-item-hover
               ${
                 pathname === "/"
-                  ? " group-[:not(:hover)]:menu-item-hover hover:menu-item-hover "
-                  : " hover:menu-item-hover hover:menu-item-hover menu-item-edge "
+                  ? " group-[:not(:hover)]:menu-item-hover "
+                  : " menu-item-edge "
               }
             `}
             >
@@ -64,11 +64,11 @@ export default function MenuBar({}: {}) {
               </Link>
             </div>
             <div
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center
+              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
                 ${
                   pathname === "/projects"
-                    ? " group-[:not(:hover)]:menu-item-hover hover:menu-item-hover "
-                    : " hover:menu-item-hover hover:menu-item-hover menu-item-edge "
+                    ? " group-[:not(:hover)]:menu-item-hover "
+                    : " menu-item-edge "
                 }
               `}
             >
@@ -80,11 +80,11 @@ export default function MenuBar({}: {}) {
               </Link>
             </div>
             <div
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center
+              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
                 ${
                   pathname === "/blog"
-                    ? " group-[:not(:hover)]:menu-item-hover hover:menu-item-hover "
-                    : " hover:menu-item-hover hover:menu-item-hover menu-item-edge "
+                    ? " group-[:not(:hover)]:menu-item-hover "
+                    : " menu-item-edge "
                 }
               `}
             >
@@ -96,11 +96,11 @@ export default function MenuBar({}: {}) {
               </Link>
             </div>
             <div
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center
+              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
                 ${
                   pathname === "/about"
-                    ? " group-[:not(:hover)]:menu-item-hover hover:menu-item-hover "
-                    : " hover:menu-item-hover hover:menu-item-hover menu-item-edge "
+                    ? " group-[:not(:hover)]:menu-item-hover "
+                    : " menu-item-edge "
                 }
               `}
             >
@@ -112,11 +112,11 @@ export default function MenuBar({}: {}) {
               </Link>
             </div>
             <div
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center
+              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
                 ${
                   pathname === "/contact"
-                    ? " group-[:not(:hover)]:menu-item-hover hover:menu-item-hover "
-                    : " hover:menu-item-hover hover:menu-item-hover menu-item-edge "
+                    ? " group-[:not(:hover)]:menu-item-hover "
+                    : " menu-item-edge "
                 }
               `}
             >
