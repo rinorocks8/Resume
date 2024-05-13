@@ -2,7 +2,7 @@ import "./globals.css";
 
 import Background from "./_components/background/background";
 import { Inter } from "next/font/google";
-import MenuBar from "./_components/menuBar/MenuBar";
+import MenuBar from "./_components/MenuBar";
 import type { Metadata } from "next";
 import Name from "./_components/Name";
 import { Orbitron } from "next/font/google";
