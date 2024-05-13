@@ -53,21 +53,32 @@ export default function AboutMe() {
                         peers.`}
             </p>
           </div>
-          <div className="flex flex-row items-center justify-center gap-2">
-            <Link
-              href="https://www.linkedin.com/in/ryancircelli/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedin size="24" color="#0e76a8" />
-            </Link>
-            <Link
-              href="https://github.com/ryancircelli"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <IoLogoGithub size="24" color="#333" />
-            </Link>
+          <div className="flex flex-col items-center justify-center gap-1 -mb-2">
+            <div className="flex flex-row items-center justify-center gap-2">
+              <Link
+                href="https://www.linkedin.com/in/ryancircelli/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaLinkedin size="24" color="#0e76a8" />
+              </Link>
+              <Link
+                href="https://github.com/ryancircelli"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IoLogoGithub size="24" color="#333" />
+              </Link>
+            </div>
+            <div className="text-center text-black font-medium text-xs font-orbitron flex-1">
+              <Link
+                href="/RyanCircelliResume.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Resume.pdf
+              </Link>
+            </div>
           </div>
         </div>
       </div>
