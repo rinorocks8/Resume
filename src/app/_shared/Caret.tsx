@@ -1,4 +1,4 @@
-export default function Caret() {
+export default async function Caret() {
   return (
     <div className="-ml-2 -mr-5">
       <svg

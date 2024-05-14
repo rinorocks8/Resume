@@ -1,8 +1,10 @@
+"use client";
+
 import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
 } from "react-icons/io";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Dot from "@/app/_shared/Dot";
 import { EmblaOptionsType } from "embla-carousel";
@@ -65,7 +67,7 @@ const Carousel: React.FC<PropType> = (props) => {
                   className="px-2 -z-10"
                   key={index}
                   style={{
-                    flex: "0 0 80%",
+                    flex: "0 0 75%",
                   }}
                 >
                   <div className="bg-black aspect-[1.5] rounded-2xl flex items-center justify-center shadow-md shadow-zinc-700">

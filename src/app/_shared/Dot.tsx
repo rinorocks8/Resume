@@ -1,6 +1,4 @@
-import React from "react";
-
-const Dot = ({
+export default function Dot({
   selectedIndex = 0,
   index = 0,
   size = 10,
@@ -8,7 +6,7 @@ const Dot = ({
   selectedIndex?: number;
   index?: number;
   size?: number;
-}) => {
+}) {
   const innerShadowSize = size * 0.1;
   const shadowSize = size * 0.2;
   return (
@@ -46,6 +44,4 @@ const Dot = ({
       </div>
     </div>
   );
-};
-
-export default Dot;
+}
