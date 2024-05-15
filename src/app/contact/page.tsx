@@ -12,13 +12,13 @@ export default async function Contact() {
           <PageHeader text="CONTACT ME" />
           <div className="flex-1 flex-col flex gap-4 p-4 mx-2">
             <div className="flex-1 space-y-4 text-black font-orbitron">
-              <p>Let's get in touch!</p>
+              <p>{"Let's get in touch!"}</p>
               <p>
-                I am always looking for new opportunities. If you would like to
+                {`I am always looking for new opportunities. If you would like to
                 discuss a project, an opening, or if you just want to connect,
-                feel free to reach out to me.
+                feel free to reach out to me.`}
               </p>
-              <p>You can reach me at:</p>
+              <p>{`You can reach me at:`}</p>
               <div className="font-sans">
                 <div className="flex-row flex items-center gap-2">
                   <div className="mt-1">

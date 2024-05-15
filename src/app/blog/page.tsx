@@ -67,9 +67,17 @@ export default async function Blog() {
               <h2 className="px-2 text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-1 flex-row items-center flex">
                 BLOG
               </h2>
-              <p className="mb-2 px-1 flex-1 text-end text-gray-500 dark:text-gray-400 text-xs font-orbitron">
-                {"(Scraped from Medium)"}
-              </p>
+              <div className="flex-1"></div>
+              <Link
+                href={"https://medium.com/@ryancircelli"}
+                target="_blank"
+                rel="noreferrer"
+                className="mb-2 px-1"
+              >
+                <p className="text-end text-gray-500 dark:text-gray-400 text-xs font-orbitron">
+                  {"(Scraped from Medium)"}
+                </p>
+              </Link>
             </div>
             <div
               className="w-full px-1 h-[5px] border-white border-[1.5px] bg-blue-800 dark:bg-red-800"
