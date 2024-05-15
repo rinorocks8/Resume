@@ -20,7 +20,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
-    "three": "^0.164.1"
+    "three": "^0.164.1",
+    "url-metadata": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

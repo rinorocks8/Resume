@@ -1,3 +1,5 @@
+"use server";
+
 import Caret from "@/app/_shared/Caret";
 import Carousel from "@/app/_components/featuredProjects/carousel/Carousel";
 import { EmblaOptionsType } from "embla-carousel";
@@ -17,7 +19,7 @@ const SLIDES = [
   "Graph Maze",
 ];
 
-export default function FeaturedProjects() {
+export default async function FeaturedProjects() {
   return (
     <div className="p-4 min-h-full flex flex-col">
       <div className="flex-row flex -my-1 -mt-2">

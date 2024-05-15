@@ -1,10 +1,12 @@
+"use server";
+
 import Caret from "@/app/_shared/Caret";
 import { FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import { IoLogoGithub } from "react-icons/io";
 import Link from "next/link";
 
-export default function AboutMe() {
+export default async function AboutMe() {
   return (
     <div className="flex-1 flex flex-col">
       {/* About Me */}

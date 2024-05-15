@@ -21,6 +21,10 @@ const config: Config = {
         astral_delight: [`var(--font-astral_delight-font)`],
         astral_delight_hollow: [`var(--font-astral_delight_hollow-font)`],
       },
+      fontSize: {
+        xxs: "0.5rem",
+        xxxs: "0.4rem",
+      },
     },
   },
   plugins: [],

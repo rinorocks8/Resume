@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 
 export default function MenuBar({}: {}) {
   const { setDarkMode } = useContext(Context);
-  const pathname = usePathname();
 
   return (
     <div className="relative w-full">
@@ -47,86 +46,11 @@ export default function MenuBar({}: {}) {
         <div className="w-full h-10 bg-white rounded-full flex shadow-sm shadow-gray-400">
           <div className="overflow-hidden group w-full h-full bg-white rounded-full flex-row flex bg-chrome justify-evenly group">
             <div className="h-full w-20 menu-item-edge hover:menu-item-hover group pointer-events-none"></div>
-            <Link
-              href="/"
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover hover:menu-item-hover
-              ${
-                pathname === "/"
-                  ? " group-[:not(:hover)]:menu-item-hover "
-                  : " menu-item-edge "
-              }
-            `}
-            >
-              <div
-                className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
-              >
-                HOME
-              </div>
-            </Link>
-            <Link
-              href="/projects"
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
-                ${
-                  pathname === "/projects"
-                    ? " group-[:not(:hover)]:menu-item-hover "
-                    : " menu-item-edge "
-                }
-              `}
-            >
-              <div
-                className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
-              >
-                PROJECTS
-              </div>
-            </Link>
-            <Link
-              href="/blog"
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
-                ${
-                  pathname === "/blog"
-                    ? " group-[:not(:hover)]:menu-item-hover "
-                    : " menu-item-edge "
-                }
-              `}
-            >
-              <div
-                className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
-              >
-                BLOG
-              </div>
-            </Link>
-            <Link
-              href="/about"
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
-                ${
-                  pathname === "/about"
-                    ? " group-[:not(:hover)]:menu-item-hover "
-                    : " menu-item-edge "
-                }
-              `}
-            >
-              <div
-                className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
-              >
-                ABOUT
-              </div>
-            </Link>
-            <Link
-              href="/contact"
-              className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
-                ${
-                  pathname === "/contact"
-                    ? " group-[:not(:hover)]:menu-item-hover "
-                    : " menu-item-edge "
-                }
-              `}
-            >
-              <div
-                className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
-              >
-                CONTACT
-              </div>
-            </Link>
+            <MenuItem href="/" text="HOME" />
+            <MenuItem href="/projects" text="PROJECTS" />
+            <MenuItem href="/blog" text="BLOG" />
+            <MenuItem href="/about" text="ABOUT" />
+            <MenuItem href="/contact" text="CONTACT" />
             <div className="h-full w-20 menu-item-edge hover:menu-item-hover  pointer-events-none"></div>
           </div>
         </div>
@@ -134,3 +58,26 @@ export default function MenuBar({}: {}) {
     </div>
   );
 }
+
+const MenuItem = ({ href, text }: { href: string; text: string }) => {
+  const pathname = usePathname();
+
+  return (
+    <Link
+      href={href}
+      className={`h-full px-4 flex-1 w-full flex items-center justify-center hover:menu-item-hover
+      ${
+        pathname === href
+          ? " group-[:not(:hover)]:menu-item-hover "
+          : " menu-item-edge "
+      }
+    `}
+    >
+      <div
+        className={`text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow text-2xl font-astral_delight pt-[1px] `}
+      >
+        {text}
+      </div>
+    </Link>
+  );
+};

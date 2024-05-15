@@ -1,8 +1,8 @@
-// "use client";
+"use server";
 
 import Link from "next/link";
 
-export default function Name() {
+export default async function Name() {
   return (
     <div className="items-center justify-start flex w-full py-4">
       <Link
