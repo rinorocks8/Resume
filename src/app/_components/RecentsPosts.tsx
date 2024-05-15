@@ -35,7 +35,7 @@ export default async function RecentPosts() {
           </h2>
         </Link>
       </div>
-      <div className="mt-1 text-black font-medium text-base font-orbitron flex-1 overflow-hidden relative mb-2">
+      <div className="mt-1 text-black font-medium text-base font-inter flex-1 overflow-hidden relative mb-2">
         <div
           className="pointer-events-none z-10 absolute -top-2 right-4 left-4 bottom-0"
           style={{

@@ -42,7 +42,7 @@ export default async function AboutMe() {
             />
           </div>
           {/* Text */}
-          <div className="text-center mt-6 text-black font-medium text-sm font-orbitron flex-1">
+          <div className="text-center mt-6 text-black font-medium text-sm font-inter flex-1">
             <p>
               {`I am a software engineer with a passion for web
                         development. I prefer to work with React, React Native
@@ -51,8 +51,7 @@ export default async function AboutMe() {
             </p>
             <br />
             <p>
-              {`I am always open to connect and learing more from my
-                        peers.`}
+              {`I am always open to connecting and learning more from my peers.`}
             </p>
           </div>
           <div className="flex flex-col items-center justify-center gap-1 -mb-2">

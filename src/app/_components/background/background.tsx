@@ -8,7 +8,7 @@ import { useContext } from "react";
 export default function Background() {
   const { darkMode } = useContext(Context);
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen static">
       <Canvas orthographic camera={{ zoom: 100, position: [0, 0, 10] }}>
         <FullScreenQuad darkMode={darkMode} />
       </Canvas>

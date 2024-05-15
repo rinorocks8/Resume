@@ -20,6 +20,7 @@ const config: Config = {
         eight_track: [`var(--font-eight_track-font)`],
         astral_delight: [`var(--font-astral_delight-font)`],
         astral_delight_hollow: [`var(--font-astral_delight_hollow-font)`],
+        inter: [`var(--font-inter)`],
       },
       fontSize: {
         xxs: "0.5rem",

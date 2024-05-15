@@ -2,6 +2,7 @@
 
 import Dot from "../_shared/Dot";
 import Link from "next/link";
+import PageHeader from "../_shared/PageHeader";
 import urlMetadata from "url-metadata";
 
 export default async function Blog() {
@@ -60,32 +61,25 @@ export default async function Blog() {
 
   return (
     <div className="w-full flex-1 flex-row gap-4 mt-8 flex">
-      <div className="flex-1 h-full flex-col flex gap-4 overflow-hidden">
+      <div className="flex-1 flex-col flex gap-4 overflow-hidden">
         <div className="bg-chrome rounded-3xl flex-1">
           <div className="p-4 w-full h-full flex-col flex">
-            <div className="flex-row flex -my-2 -mt-0.5 items-end">
-              <h2 className="px-2 text-blue-800 dark:text-red-800 font-semibold ring-white textBorder-sm textShadow shadow-gray-400 text-3xl font-astral_delight pb-1 flex-row items-center flex">
-                BLOG
-              </h2>
-              <div className="flex-1"></div>
-              <Link
-                href={"https://medium.com/@ryancircelli"}
-                target="_blank"
-                rel="noreferrer"
-                className="mb-2 px-1"
-              >
-                <p className="text-end text-gray-500 dark:text-gray-400 text-xs font-orbitron">
-                  {"(Scraped from Medium)"}
-                </p>
-              </Link>
-            </div>
-            <div
-              className="w-full px-1 h-[5px] border-white border-[1.5px] bg-blue-800 dark:bg-red-800"
-              style={{
-                transform: "skewX(-15deg)",
-              }}
+            <PageHeader
+              text="Blog"
+              rightSide={
+                <Link
+                  href={"https://medium.com/@ryancircelli"}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mb-2 px-1"
+                >
+                  <p className="text-end text-gray-500 dark:text-gray-400 text-xs font-inter">
+                    {"(Scraped from Medium)"}
+                  </p>
+                </Link>
+              }
             />
-            <div className="mt-3 text-black text-base font-orbitron flex-1 overflow-hidden relative mb-2">
+            <div className="mx-2 mr-3 mt-4 text-black text-base font-inter flex-1 overflow-hidden relative mb-2">
               {articles.map((article, index) => (
                 <Link
                   key={index}
@@ -94,22 +88,22 @@ export default async function Blog() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="flex flex-row gap-3 mx-2 justify-between">
+                  <div className="flex flex-row gap-4 mx-2 justify-between">
                     <div className="mt-[9px]">
                       <Dot />
                     </div>
-                    <div className="flex-col flex gap-2 flex-1">
+                    <div className="flex-col flex flex-1">
                       <h1 className="font-black text-lg">{article.ogTitle}</h1>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                      <span className="text-sm text-gray-600">
                         {article.ogDescription}
                       </span>
-                      <pre className="flex flex-row w-full text-xs font-orbitron ">
+                      <pre className="pt-2 flex flex-row w-full text-xs font-inter ">
                         {article.readingDuration !== "" ? (
-                          <span className="text-gray-500 dark:text-gray-400">
+                          <span className="text-gray-600">
                             {article.readingDuration + " - "}
                           </span>
                         ) : null}
-                        <span className="text-gray-500 dark:text-gray-400">
+                        <span className="text-gray-600">
                           {new Date(
                             article.articlePublishedTime
                           ).toDateString()}
