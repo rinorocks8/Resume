@@ -6,9 +6,9 @@ import PageHeader from "../_shared/PageHeader";
 
 export default async function Contact() {
   return (
-    <div className="w-full flex-1 flex-row gap-4 mt-8 flex">
+    <div className="w-full flex-row gap-4 mt-8 flex">
       <div className="flex-1 flex-col flex gap-4 overflow-hidden">
-        <div className="bg-chrome rounded-3xl flex-1 flex-col flex">
+        <div className="bg-chrome rounded-3xl flex-1 flex-col flex pb-2">
           <PageHeader text="CONTACT ME" />
           <div className="flex-1 flex-col flex gap-4 p-4 mx-2">
             <div className="flex-1 space-y-4 text-black font-inter">

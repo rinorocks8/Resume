@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default async function AboutMe() {
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col w-52">
       {/* About Me */}
       <div className="flex-row flex -my-1 -mt-2 mb-0">
         <Link href="/about">
@@ -18,41 +18,43 @@ export default async function AboutMe() {
           </h2>
         </Link>
       </div>
-      <div className="relative w-auto flex-1">
-        <div className="absolute left-0 right-0 top-0 bottom-0 flex flex-col">
-          {/* Headshot */}
-          <div className="relative rounded-full w-full aspect-square">
-            <div
-              className="absolute z-10 w-full h-full rounded-full"
-              style={{
-                boxShadow: `
+      <div className="relative w-auto flex-1 flex-col flex">
+        <div className="flex flex-col flex-1">
+          <div className="flex flex-col flex-1">
+            {/* Headshot */}
+            <div className="relative rounded-full w-full aspect-square">
+              <div
+                className="absolute z-10 w-full h-full rounded-full"
+                style={{
+                  boxShadow: `
             inset 0px 0px 1px 1px rgba(226, 232, 240, 1),
             0px 0px 2px 2px rgba(226, 232, 240, 1),
             0px 0px 8px 8px rgba(255, 255, 255, 1),
             0px 0px 12px 12px rgba(226, 232, 240, 1)
           `,
-              }}
-            />
-            <Image
-              src="/headshot.png"
-              alt="Ryan Circelli Headshot"
-              width="2728"
-              height="2728"
-              className="rounded-full overflow-hidden w-full aspect-square"
-            />
-          </div>
-          {/* Text */}
-          <div className="text-center mt-6 text-black font-medium text-sm font-inter flex-1">
-            <p>
-              {`I am a software engineer with a passion for web
+                }}
+              />
+              <Image
+                src="/headshot.png"
+                alt="Ryan Circelli Headshot"
+                width="2728"
+                height="2728"
+                className="rounded-full overflow-hidden w-full aspect-square"
+              />
+            </div>
+            {/* Text */}
+            <div className="text-center mt-6 text-black font-medium text-sm font-inter flex-1">
+              <p>
+                {`I am a software engineer with a passion for web
                         development. I prefer to work with React, React Native
                         (Expo), Typescript, Python, Terraform, and many AWS
                         services, but I'm quick to learn new things!`}
-            </p>
-            <br />
-            <p>
-              {`I am always open to connecting and learning more from my peers.`}
-            </p>
+              </p>
+              <br />
+              <p>
+                {`I am always open to connecting and learning more from my peers.`}
+              </p>
+            </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-1 -mb-2">
             <div className="flex flex-row items-center justify-center gap-2">

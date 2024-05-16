@@ -64,7 +64,7 @@ export default function RootLayout({
               <Background />
             </div>
             <div className="absolute h-screen w-screen justify-center flex">
-              <div className="overflow-y-auto py-24 w-full flex items-start justify-center">
+              <div className="overflow-y-auto py-12 w-full flex items-start justify-center">
                 <div className="relative flex flex-col items-start justify-start max-w-[66%] min-h-full w-full flex-1">
                   {/* Name */}
                   <Name />
