@@ -56,7 +56,7 @@ export default async function AboutMe() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-1 -mb-2">
+          <div className="flex flex-col items-center justify-center gap-1 -mb-2 mt-6">
             <div className="flex flex-row items-center justify-center gap-2">
               <Link
                 href="https://www.linkedin.com/in/ryancircelli/"
