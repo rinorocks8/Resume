@@ -12,6 +12,9 @@ export default function MenuBar({}: {}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  // TODO animate opacity for opening and closing the dropdown
+  // TODO rotate svg caret on open and close
+
   return (
     <div className="relative w-full">
       <ThemeSelector />
@@ -32,7 +35,7 @@ export default function MenuBar({}: {}) {
           <div className="h-full flex-row flex-1 flex">
             <div className="h-full flex-1 menu-item-edge hover:menu-item-hover pointer-events-none" />
             <button
-              className="flex items-center justify-center gap-1 px-8"
+              className="flex items-center justify-center gap-1 px-8 hover:menu-item-hover"
               onClick={() => setOpen(!open)}
             >
               <div
