@@ -28,7 +28,7 @@ export default async function About() {
                 }
               />
               <div className="flex-1 flex-col flex gap-4 p-4 pb-0 mx-2">
-                <p className="text-black font-medium text-sm font-inter">
+                <div className="text-black font-medium text-sm font-inter">
                   <div className="w-40 m-2 ml-4 mb-4 rounded-full float-right">
                     <div className="relative rounded-full w-full aspect-square">
                       <div
@@ -69,7 +69,7 @@ export default async function About() {
                   <p>
                     {`I am always open to connecting and learning more from my peers.`}
                   </p>
-                </p>
+                </div>
               </div>
             </div>
           </div>

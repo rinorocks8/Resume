@@ -51,7 +51,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Provider>
           <main
-            className={`h-screen w-screen
+            className={`h-screen w-screen overflow-hidden
               ${orbitron_font.variable} orbitron-font
               ${eight_track_hollow.variable} eight_track_hollow
               ${eight_track.variable} eight_track
@@ -60,7 +60,7 @@ export default function RootLayout({
               ${inter.variable} inter
             `}
           >
-            <div className="absolute h-screen w-screen">
+            <div className="absolute h-screen w-screen overflow-hidden">
               <Background />
             </div>
             <div className="absolute h-screen w-screen justify-center flex overflow-hidden">
