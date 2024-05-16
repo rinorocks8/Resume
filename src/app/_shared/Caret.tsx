@@ -1,4 +1,8 @@
-export default async function Caret() {
+export default function Caret({
+  transform = "skewX(-5)",
+}: {
+  transform?: string;
+}) {
   return (
     <div className="-ml-2 -mr-5">
       <svg
@@ -6,7 +10,7 @@ export default async function Caret() {
         height={48}
         className="text-blue-800 dark:text-red-800"
         viewBox="0 0 100 100"
-        transform="skewX(-5)"
+        transform={transform}
       >
         <rect
           x="52.5"
