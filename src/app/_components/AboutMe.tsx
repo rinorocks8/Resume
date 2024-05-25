@@ -45,10 +45,7 @@ export default async function AboutMe() {
             {/* Text */}
             <div className="text-center mt-6 text-black font-medium text-sm font-inter flex-1">
               <p>
-                {`I am a software engineer with a passion for web
-                        development. I prefer to work with React, React Native
-                        (Expo), Typescript, Python, Terraform, and many AWS
-                        services, but I'm quick to learn new things!`}
+                {`I am a dedicated software engineer with a passion for web development. I specialize in using React, React Native (Expo), TypeScript, Python, Terraform, and various AWS services. Through tinkering with development projects, I continuously learn and explore new technologies and innovative solutions.`}
               </p>
               <br />
               <p>

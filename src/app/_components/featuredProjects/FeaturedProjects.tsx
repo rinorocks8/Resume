@@ -33,31 +33,41 @@ const Slide = ({
 };
 
 const SLIDES = [
-  <Slide imgUrl="./lifted.png" title="Lifted" href="/projects/lifted" />,
+  <Slide
+    imgUrl="./lifted.png"
+    title="Lifted"
+    href="/projects/lifted"
+    key="lifted"
+  />,
   <Slide
     imgUrl="./portfolio1.png"
     title="Portfolio"
     href="https://github.com/ryancircelli/Portfolio"
+    key="portfolio"
   />,
   <Slide
     imgUrl="https://opengraph.githubassets.com/e5f9e37c8630e485ac8fc8d37864eb8a4479ce4b6912b7898e606a34e647425b/ryancircelli/IPFSHosting"
     title="IPFS Hosting"
     href="https://github.com/ryancircelli/Portfolio"
+    key="ipfs"
   />,
   <Slide
     imgUrl="./7days.png"
     title="7Days"
     href="https://github.com/ryancircelli/7days"
+    key="7days"
   />,
   <Slide
     imgUrl="./instagatorai.png"
     title="InstaGatorAI"
     href="https://github.com/ryancircelli/InstaGatorAI"
+    key="instagatorai"
   />,
   <Slide
     imgUrl="./maze.png"
     title="Graph Maze"
     href="https://github.com/ryancircelli/InstaGatorAI"
+    key="graphmaze"
   />,
 ];
 

@@ -65,7 +65,7 @@ const Carousel: React.FC<PropType> = (props) => {
               {slides.map((element, index) => (
                 <div
                   className="px-2 -z-10"
-                  key={index}
+                  key={element.key}
                   style={{
                     flex: "0 0 75%",
                   }}
