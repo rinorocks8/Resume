@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/app/_shared/PageHeader";
 
+//force rebuild
 export default function Projects() {
   return (
     <div className="w-full flex-1 flex-row gap-4 mt-8 flex">
