@@ -12,6 +12,9 @@ export default async function RecentPosts() {
       headers: {
         "Content-Type": "application/json",
       },
+      next: {
+        revalidate: 600,
+      },
     }
   );
   const data = await res.json();

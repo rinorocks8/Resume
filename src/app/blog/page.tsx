@@ -13,6 +13,9 @@ export default async function Blog() {
       headers: {
         "Content-Type": "application/json",
       },
+      next: {
+        revalidate: 600,
+      },
     }
   );
   const data = await res.json();

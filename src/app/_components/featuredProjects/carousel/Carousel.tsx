@@ -14,7 +14,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { usePrevNextButtons } from "./EmblaCarouselArrowButtons";
 
 type PropType = {
-  slides: string[];
+  slides: React.ReactElement[];
   options?: EmblaOptionsType;
 };
 
@@ -62,7 +62,7 @@ const Carousel: React.FC<PropType> = (props) => {
             ref={emblaRef}
           >
             <div className="touch-pan-y touch-pinch-zoom flex flex-row">
-              {slides.map((index) => (
+              {slides.map((element, index) => (
                 <div
                   className="px-2 -z-10"
                   key={index}
@@ -70,8 +70,8 @@ const Carousel: React.FC<PropType> = (props) => {
                     flex: "0 0 75%",
                   }}
                 >
-                  <div className="bg-black aspect-[1.5] rounded-2xl flex items-center justify-center shadow-md shadow-zinc-700">
-                    <div className="text-xl">{index}</div>
+                  <div className="bg-black aspect-[1.5] rounded-2xl flex items-center justify-center shadow-md shadow-zinc-700 overflow-hidden">
+                    {element}
                   </div>
                 </div>
               ))}
